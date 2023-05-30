@@ -1,0 +1,16 @@
+<div class="d-grid gap-2">
+
+    <a class="btn btn-outline-secondary"asp-action="Index"
+    asp-controller="Home" asp-route-category="">
+     Home
+    </a>
+
+    @if(User.Identity.IsAuthenticated)
+    {
+        <partial name="NavMenu/Auth" />
+    }else{
+        <partial name="NavMenu/NotAuth"/>
+    }
+</div>
+    
+ 

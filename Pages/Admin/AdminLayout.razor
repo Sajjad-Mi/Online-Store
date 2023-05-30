@@ -1,0 +1,30 @@
+@inherits LayoutComponentBase
+<div class="container">
+
+    <div class="bg-dark text-white p-4 mt-1 rounded">
+        <span class="navbar-brand ml-2">SPORTS STORE Administration</span>
+    </div>
+    <div class="container-fluid">
+        <div class="row p-2">
+            <div class="col-3">
+                <div class="d-grid gap-1">
+                    <NavLink class="btn btn-outline-dark"
+                                href="/admin/products" 
+                                ActiveClass="btn-dark text-white" 
+                                Match="NavLinkMatch.Prefix">
+                        Products
+                    </NavLink>
+                    <NavLink class="btn btn-outline-dark"
+                                href="/admin/orders" 
+                                ActiveClass="btn-dark text-white" 
+                                Match="NavLinkMatch.Prefix">
+                        Orders
+                    </NavLink>            
+                </div>
+            </div>
+            <div class="col">
+                @Body
+            </div>
+        </div>
+    </div>
+</div>
