@@ -11,8 +11,8 @@
                                     <div class="card-body">
                                           <h5 class="card-title">@p.Name</h5>
                                           <p class="card-text">@p.Lines.FirstOrDefault().Product.Name ...</p>
-                                          <a href="#" class="btn btn-dark">Check Order</a>
-                                    </div>
+                                          <p>@p.Lines.Sum(e => e.Price * e.Quantity)</p>
+                                          <a class="btn btn-dark" asp-controller="Order" asp-action="Order" asp-route-orderId="@p.OrderID">Check Order</a>                                    </div>
                                     <div class="card-footer text-body-secondary">
                                           2 days ago
                                     </div>

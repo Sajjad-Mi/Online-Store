@@ -1,0 +1,27 @@
+@model Order;
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+    @foreach (var p in Model.Lines) {
+        <div class="col">
+            <div class="container">
+                <div class="card text-center">
+                    <div class="card-header">
+                        @p.Product.Name
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">price: @p.Price</h5>
+                        <p class="card-text">Quantity: @p.Quantity</p>
+                                           
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+    }
+        
+    </div>
+    <div class=" text-center">
+        <h3>Total: @Model.Lines.Sum(e => e.Price * e.Quantity)</h3>
+    </div>
+
+</div>

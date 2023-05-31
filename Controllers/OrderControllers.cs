@@ -68,14 +68,21 @@ namespace SportsStore.Controllers
                 return View();
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> UserOrders()
         {
             IdentityUser user = await userManager.FindByNameAsync(User.Identity.Name);
-            
-            IQueryable<Order> userOrders =  repository.Orders
-                .Where(o => o.UserId == user.Id);
+
+            IQueryable<Order> userOrders = repository.Orders.Where(o => o.UserId == user.Id);
             return View(userOrders);
+        }
+
+        public async Task<IActionResult> Order(int orderId)
+        {
+            Console.WriteLine(orderId);
+            Order order = repository.Orders.FirstOrDefault(o => o.OrderID == orderId);
+            return View(order);
         }
     }
 }

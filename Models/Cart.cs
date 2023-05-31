@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace SportsStore.Models
 {
     public class Cart
@@ -12,7 +14,7 @@ namespace SportsStore.Models
 
             if (line == null)
             {
-                Lines.Add(new CartLine { Product = product, Quantity = quantity });
+                Lines.Add(new CartLine { Product = product, Quantity = quantity, Price = product.Price });
             }
             else
             {
@@ -33,5 +35,8 @@ namespace SportsStore.Models
         public int CartLineID { get; set; }
         public Product Product { get; set; } = new();
         public int Quantity { get; set; }
+        [Column(TypeName = "decimal(8, 2)")]
+        public decimal Price { get; set; }
+
     }
 }
