@@ -27,9 +27,7 @@
         <partial name="NavMenu/Nav" />
 
        </div>
-        <div class="row mx-1 mt-4 p-1">
-             <vc:category-menu />
-       </div>
+       @RenderSection("Category", false)
       </div>
       <div class="col-9">
       @RenderBody()
