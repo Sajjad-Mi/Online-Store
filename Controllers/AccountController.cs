@@ -70,8 +70,9 @@ namespace SportsStore.Controllers
                     Email = signupModel.Email
                 };
                 Console.WriteLine(signupModel?.ReturnUrl);
+                IdentityResult result = await userManager.CreateAsync(user, signupModel.Password);
 
-                if ((await userManager.CreateAsync(user, signupModel.Password)).Succeeded)
+                if (result.Succeeded)
                 {
                     if (
                         (
@@ -85,6 +86,14 @@ namespace SportsStore.Controllers
                     )
                     {
                         return Redirect(signupModel?.ReturnUrl);
+                    }
+                }
+                else
+                {
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        Console.WriteLine(error.Description);
+                        ModelState.AddModelError("", error.Description);
                     }
                 }
             }
