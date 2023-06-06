@@ -14,7 +14,7 @@
                                           <p>@p.Lines.Sum(e => e.Price * e.Quantity)</p>
                                           <a class="btn btn-dark" asp-controller="Order" asp-action="Order" asp-route-orderId="@p.OrderID">Check Order</a>                                    </div>
                                     <div class="card-footer text-body-secondary">
-                                          2 days ago
+                                          @p.Date
                                     </div>
                               </div>
                         </div>

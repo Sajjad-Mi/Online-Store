@@ -16,7 +16,6 @@ namespace SportsStore.Models
         public ICollection<CartLine> Lines { get; set; } = new List<CartLine>();
         
         
-
         [Required(ErrorMessage = "Please enter a name")]
         public string? Name { get; set; }
 
@@ -43,5 +42,7 @@ namespace SportsStore.Models
 
         [BindNever]
         public bool Shipped { get; set; }
+        [BindNever]
+        public DateTime? Date { get; set; } = DateTime.Now;
     }
 }
