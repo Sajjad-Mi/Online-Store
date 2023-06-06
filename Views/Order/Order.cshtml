@@ -20,8 +20,17 @@
     }
         
     </div>
-    <div class=" text-center">
-        <h3>Total: @Model.Lines.Sum(e => e.Price * e.Quantity)</h3>
+    <div class="card text-center mt-3">
+       <div class="card-header">
+            <h3>Total: @Model.Lines.Sum(e => e.Price * e.Quantity)</h3>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Address:</h5>
+            <p class="card-text">@Model.Country, @Model.City, @Model.Line1</p>
+            @if( Model.Shipped ){
+                <p><i class="bi bi-truck"></i> Your order has been shipped</p>
+            }                    
+        </div>
     </div>
 
 </div>
