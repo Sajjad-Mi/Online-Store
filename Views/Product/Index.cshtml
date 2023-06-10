@@ -1,0 +1,23 @@
+@model Product
+<section id="intro" class="min-vh-100">
+    <div class="container-lg mt-1 p-5  ">
+      <div class="row g-4  m-2  aligns-items-center">
+        <div class="card card card-outline-primary">
+            <div class="card-header m-3">
+                <h2>@Model.Name</h2>
+            </div>
+            <div class="card-body">
+                <p>@Model.Description</p>
+                <span class="badge  bg-primary text-white"
+                style="float:right">
+                <small>@Model?.Price.ToString("c")</small>
+                </span>
+                <span class="badge  bg-dark text-white"
+                style="float:right">
+                <small>@Model?.Category</small>
+                </span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>

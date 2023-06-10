@@ -39,6 +39,11 @@ app.MapControllerRoute(
     new { Controller = "Home", action = "Index" }
 );
 app.MapControllerRoute(
+    "product",
+    "product/productId{productId:int}",
+    new { Controller = "Product", action = "Index" }
+);
+app.MapControllerRoute(
     "page",
     "Page{productPage:int}",
     new
