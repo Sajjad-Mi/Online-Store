@@ -1,0 +1,12 @@
+@model ProductCommentViewModel
+<hr class="my-0" />
+<form asp-action="NewComment" asp-controller="Product" method="post">
+    <div class="form-group">
+        <input type="hidden" class="form-control" asp-for="@Model.Comment.ProductId" value="@Model.Product.ProductID" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Comment.Text">New Comment</label>
+        <textarea class="form-control" asp-for="@Model.Comment.Text"  rows="3"></textarea>
+    </div>
+    <button class="btn btn-dark mt-2" type="submit">Send</button>
+</form>

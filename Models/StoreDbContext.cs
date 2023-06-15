@@ -21,6 +21,16 @@ namespace SportsStore.Models
                 .HasOne(o => o.User)
                 .WithMany()
                 .HasForeignKey(o => o.UserId);
+            modelBuilder
+                .Entity<Comment>()
+                .HasOne(c => c.User)
+                .WithMany()
+                .HasForeignKey(o => o.UserId);
+            modelBuilder
+                .Entity<Comment>()
+                .HasOne(c => c.Product)
+                .WithMany(p => p.Comments)
+                .HasForeignKey(c => c.ProductId);
         }
     }
 }

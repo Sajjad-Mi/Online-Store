@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace SportsStore.Models
 {
@@ -11,5 +12,8 @@ namespace SportsStore.Models
         [Column(TypeName = "decimal(8, 2)")]
         public decimal Price { get; set; }
         public string Category { get; set; } = String.Empty;
+        [BindNever]
+        public ICollection<Comment> Comments { get; set; } =  new List<Comment>();
+
     }
 }

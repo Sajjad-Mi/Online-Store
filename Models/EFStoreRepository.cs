@@ -25,6 +25,12 @@ namespace SportsStore.Models
 
         public void SaveProduct(Product p)
         {
+
+             context.SaveChanges();
+        }
+        public void CreateComment(Comment c)
+        {
+            context.Add(c);
             context.SaveChanges();
         }
     }

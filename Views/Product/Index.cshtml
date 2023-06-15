@@ -1,23 +1,68 @@
-@model Product
-<section id="intro" class="min-vh-100">
+@model ProductCommentViewModel
+
+<section class="min-vh-100">
     <div class="container-lg mt-1 p-5  ">
       <div class="row g-4  m-2  aligns-items-center">
         <div class="card card card-outline-primary">
             <div class="card-header m-3">
-                <h2>@Model.Name</h2>
+                <h2>@Model.Product.Name</h2>
             </div>
             <div class="card-body">
-                <p>@Model.Description</p>
+                <p>@Model.Product.Description</p>
                 <span class="badge  bg-primary text-white"
                 style="float:right">
-                <small>@Model?.Price.ToString("c")</small>
+                <small>@Model?.Product.Price.ToString("c")</small>
                 </span>
                 <span class="badge  bg-dark text-white"
                 style="float:right">
-                <small>@Model?.Category</small>
+                <small>@Model?.Product.Category</small>
                 </span>
             </div>
         </div>
       </div>
+
+      
+      <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="card text-dark">
+            <div class="card-body p-4">
+              <h4 class="mb-0">Recent comments</h4>
+              <hr class="my-4" />
+               @if(Model.Product.Comments.Count() > 0 ){
+                @foreach (var c in Model.Product.Comments) {
+                  <div class="d-flex flex-start">
+                    
+                    <div>
+                      <h6 class="fw-bold mb-1">@c.User.UserName</h6>
+                      <div class="d-flex align-items-center mb-3">
+                        <p class="mb-0">
+                          @c.Date
+                        </p>
+                        <a href="#!" class="link-muted"><i class="fas fa-pencil-alt ms-2"></i></a>
+                        <a href="#!" class="link-muted"><i class="fas fa-redo-alt ms-2"></i></a>
+                        <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
+                      </div>
+                      <p class="my-0">
+                       @c.Text
+                      </p>
+                    </div>
+                  </div>
+                  @if (c != Model.Product.Comments.Last())
+                    {
+                      <hr class="my-4" />
+                    }
+                 
+                }
+               }
+            </div>
+       
+            @if(User.Identity.IsAuthenticated){
+              <partial name="CommentInput"  model="@Model"/>
+
+            }
+        </div>
+      </div>
+    </div>
+     
     </div>
   </section>

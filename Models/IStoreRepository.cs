@@ -6,5 +6,6 @@ namespace SportsStore.Models
         void SaveProduct(Product p);
         void CreateProduct(Product p);
         void DeleteProduct(Product p);
+        void CreateComment(Comment c);
     }
 }
