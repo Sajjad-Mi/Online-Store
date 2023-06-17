@@ -28,6 +28,7 @@ namespace SportsStore.Controllers
             return View(new ProductCommentViewModel { Product = product });
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> NewComment(Comment Comment)
         {
