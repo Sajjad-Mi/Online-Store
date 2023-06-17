@@ -1,5 +1,7 @@
 @model ProductCommentViewModel
-
+@section Scripts{
+      <script src="https://cdn.ckeditor.com/4.21.0/standard-all/ckeditor.js"></script>
+}
 <section class="min-vh-100">
     <div class="container-lg mt-1 p-5  ">
       <div class="row g-4  m-2  aligns-items-center">
@@ -43,7 +45,7 @@
                         <a href="#!" class="link-muted"><i class="fas fa-heart ms-2"></i></a>
                       </div>
                       <p class="my-0">
-                       @c.Text
+                       @Html.Raw(c.Text)
                       </p>
                     </div>
                   </div>
