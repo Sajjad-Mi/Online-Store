@@ -19,6 +19,19 @@
                 style="float:right">
                 <small>@Model?.Product.Category</small>
                 </span>
+                 <span class="m-2">
+                  <form id="@Model.Product.ProductID" asp-page="/Cart" method="post">
+                    <input type="hidden" name="productId" asp-for="Product.ProductID" />
+                    <input type="hidden" name="returnUrl"
+                    value="page1" />
+                  
+                    <button type="submit"
+                    class="btn btn-dark btn-sm pull-right" style="float:right">
+                    Add To Cart
+                    </button>
+                  
+                </form>
+              </span>
             </div>
         </div>
       </div>
